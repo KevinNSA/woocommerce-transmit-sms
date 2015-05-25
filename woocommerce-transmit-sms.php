@@ -8,7 +8,7 @@ Author: WB SMS >> Transmit SMS
 Author URI: 
 */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-define( 'WB_VERSION', '1.1' );
+define( 'WB_VERSION', '1.2' );
 
 define( 'WB_REQUIRED_WP_VERSION', '3.5' );
 

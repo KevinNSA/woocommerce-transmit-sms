@@ -37,8 +37,9 @@ All mobile numbers Format would accepted, you can entered with in international 
 
 An answer to that question.
 == Screenshots ==
-1. Woocommerce Transmit Sms frontend.
-2. Woocommerce Transmit Sms SMS Share backend.
+1. Woocommerce Transmit Sms backend 1.
+2. Woocommerce Transmit Sms SMS backend 2.
+3. Woocommerce Transmit Sms SMS backend 3.
 
 
 == Changelog ==
@@ -47,8 +48,9 @@ An answer to that question.
  * basic code development
 = 1.1 =
  * Changing code who calling woowcomerce meta (not avalible on new version woocomerce)
-= 1.2=
+= 1.2 =
  * Removing calling jquery from external source
+ * changing and modify some code to fit with wordpress.org
 
 == Upgrade notice ==
-Latest stable version is 1.1, please upgrade to version 1.1
+Latest stable version is 1.2, please upgrade to version 1.2

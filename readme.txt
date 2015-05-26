@@ -4,7 +4,7 @@ Donate link:
 Plugin URI:https://wordpress.org/plugins/woocommerce-transmit-sms/
 Tags:  SMS, Notifications, Order Confirmations, Delivery Notifications, Text Message Notifications, Text Message Alerts, WooCommerce 
 Requires at least: 3.5
-Stable tag: 1.2
+Stable tag: 1.3
 Tested :3.8
 Tested up to: 3.9.1
 License: GPLv2 or later
@@ -51,6 +51,8 @@ An answer to that question.
 = 1.2 =
  * Removing calling jquery from external source
  * Changing and modify some code to fit with wordpress.org
-
+= 1.3 =
+ * Adding function to detect changing status order automatically by other plugin
+ 
 == Upgrade notice ==
-Latest stable version is 1.2, please upgrade to version 1.2
+Latest stable version is 1.3, please upgrade to version 1.3

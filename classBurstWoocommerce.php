@@ -2,10 +2,10 @@
 class WC_BurstSMS {
     public function __construct() {
         // indicates we are running the admin
-        add_action('woocommerce_checkout_update_order_meta', array(&$this,'custom_checkout_field_update_order_meta'));
-        
+        add_action('woocommerce_checkout_update_order_meta', array($this,'custom_checkout_field_update_order_meta'));
+         add_action('woocommerce_order_status_changed', array($this,'sentNotification'));
         if ( is_admin() ) {
-           add_action('woocommerce_order_status_changed', array($this,'sentNotification'));
+          
             //require_once WB_PLUGIN_DIR . '/admin/admin.php';         
         }else{
             add_filter('woocommerce_before_checkout_form', array($this,'checkedSentNotification'));
@@ -49,17 +49,18 @@ class WC_BurstSMS {
     
      public function sentNotification($order_id){
         global $wpOption;
+        global $woocommerce;
         $WBSms = unserialize(stripslashes(get_option($wpOption)));
-        $order_id = isset($_GET['order_id']) && (int) $_GET['order_id'] ? (int) $_GET['order_id'] : '';
-        if(isset($_POST['post_ID'])) {
-             $order_id = (int)$_POST['post_ID']; 
+        if(empty($order_id) || (int)$order_id === 0){
+            $order_id = isset($_GET['order_id']) && (int) $_GET['order_id'] ? (int) $_GET['order_id'] : '';
+            if(isset($_POST['post_ID'])) {
+                 $order_id = (int)$_POST['post_ID']; 
+            }
         }
         $order = new WC_Order( $order_id );
         $items = $order->get_items();
-        
         $shippingPhoneNumber = get_post_meta( $order_id, 'shipping_phone', true ) ;   
         $sendChangeStatusNotif = get_post_meta( $order_id, 'sendChangeStatusNotif', true ) ;  
-       
         if((int)$sendChangeStatusNotif == 1 ){ 
             if($order->status == 'on-hold') $order->status = 'onhold';
             $this->sendSMS($order,$order->status.'Custom',  false);

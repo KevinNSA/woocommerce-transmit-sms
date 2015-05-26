@@ -90,6 +90,7 @@ class WC_BurstSMS {
 		$textMessage = str_replace($arrShortcode,$arryReplaceShortcode,$WBSms[$type]);
 		$textMessage = urldecode($textMessage);
 		//skip char who cannot slip by url decode
+		$textMessage = html_entity_decode($textMessage);
 		$textMessage = str_replace('&#36;','&',$textMessage);
         $WBmsAPI = new transmitsmsAPI($burstSmsApiKey, $burstSmsApiSecret);
         if($toAdmin){

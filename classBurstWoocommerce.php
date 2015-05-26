@@ -89,6 +89,8 @@ class WC_BurstSMS {
         
 		$textMessage = str_replace($arrShortcode,$arryReplaceShortcode,$WBSms[$type]);
 		$textMessage = urldecode($textMessage);
+		//skip char who cannot slip by url decode
+		$textMessage = str_replace('&#36;','&',$textMessage);
         $WBmsAPI = new transmitsmsAPI($burstSmsApiKey, $burstSmsApiSecret);
         if($toAdmin){
             $tonumber = explode(',',$adminMobile);

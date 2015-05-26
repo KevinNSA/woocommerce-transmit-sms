@@ -86,7 +86,9 @@ class WC_BurstSMS {
         $arryReplaceShortcode= array($order->get_order_number(),date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ), strip_tags($order->get_formatted_order_total()),
                                     $order->payment_method_title,$order->billing_first_name,$order->billing_last_name,$order->billing_phone,$order->billing_email,$order->billing_company,$order->billing_address_1,$order->billing_address_2,
                                         $order->billing_city, $order->billing_state, $order->billing_postcode,$order->billing_country );
-        $textMessage = str_replace($arrShortcode,$arryReplaceShortcode,$WBSms[$type]);
+        
+		$textMessage = str_replace($arrShortcode,$arryReplaceShortcode,$WBSms[$type]);
+		$textMessage = urldecode($textMessage);
         $WBmsAPI = new transmitsmsAPI($burstSmsApiKey, $burstSmsApiSecret);
         if($toAdmin){
             $tonumber = explode(',',$adminMobile);

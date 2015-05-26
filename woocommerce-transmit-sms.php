@@ -3,12 +3,12 @@
 Plugin Name: WooCommerce Transmit SMS
 Plugin URI: 
 Description: Send SMS updates to customers when their order status is updated and receive an SMS message when a customer places a new order.
-Version: 1.3
+Version: 1.4
 Author: WB SMS >> Transmit SMS
 Author URI: 
 */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-define( 'WB_VERSION', '1.3' );
+define( 'WB_VERSION', '1.4' );
 
 define( 'WB_REQUIRED_WP_VERSION', '3.5' );
 
